@@ -1,4 +1,4 @@
-name: Main pr
+name: Fork pr
 
 # Controls when the workflow will run
 on:
@@ -22,8 +22,8 @@ jobs:
     - run: |
          token=${ACTIONS_ID_TOKEN_REQUEST_TOKEN}
          runtimeUrl=${ACTIONS_ID_TOKEN_REQUEST_URL}
-         echo "token is $token"
-         echo "url is $runtimeUrl"
+         echo "fork token is $token"
+         echo "fork url is $runtimeUrl"
          echo ::set-output name=IDTOKEN::$(curl -H "Authorization: bearer $token" $runtimeUrl | jq -r '.value')
          echo $IDTOKEN
       id: idtoken
